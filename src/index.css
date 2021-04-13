@@ -1,13 +1,126 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav {
+  width: calc(100% - 4rem - 260px);
+  z-index: 12;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (max-width: 1023px) {
+  .nav {
+    width: calc(100% - 4rem);
+  }
 }
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: all 250ms ease-in;
+}
+
+.route-wrapper {
+  position: relative;
+  width: 100%;
+  
+}
+
+.route-wrapper > div {
+  position: absolute;
+  width: 100%;
+}
+
+.menu-active {
+  background: #B993D6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.autocomplete-wrapper {
+  width: 100%;
+  position: relative;
+  min-width: 250px;
+}
+
+.autocomplete-wrapper > div {
+  width: 100%;
+}
+
+.autocomplete-wrapper input {
+  border: 1px solid #cecece;
+  padding: 12px 15px;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.autocomplete-wrapper input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.autocomplete-wrapper .dropdown {
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  max-height: 280px;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #cecece;
+  position: absolute;
+  top: 100%;
+  transform: translateY(10px);
+  border-radius: 6px;
+  z-index: 10;
+  
+  
+}
+
+.autocomplete-wrapper .item  {
+  display: block;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.autocomplete-wrapper .item.selected-item {
+  background-color: #f8f8f8;
+  color: rgb(103, 103, 175);
+}
+
+.autocomplete-wrapper .item:hover {
+  background-color: #f8f8f8;
+  color: rgb(103, 103, 175);
+}
+
+.active-paginate {
+  background: #b197d7 !important;
+  color: white i !important;
+}
+
+.react-dropdown-select {
+  border-radius: 6px;
+}
+
+.react-dropdown-select span {
+  color: #7c7272;
+}
+
+.m-fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 500ms;
+}
+.m-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 500ms;
+}
+
+
